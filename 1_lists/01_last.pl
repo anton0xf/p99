@@ -1,7 +1,7 @@
 % 1.01 (*) Find the last element of a list.
-my_last(X, [Y | L]) :- my_last_(X, Y, L).
-my_last_(X, X, []) :- !.
-my_last_(X, _, [Y | L]) :- my_last_(X, Y, L), !.
+my_last(X, [Y | L]) :- my_last_(L, X, Y).
+my_last_([], X, X).
+my_last_([Y | L], X, _) :- my_last_(L, X, Y).
 
 %?- my_last(X, [a, b, c, d]).
 %@ X = d.
