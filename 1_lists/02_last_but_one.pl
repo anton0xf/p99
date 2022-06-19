@@ -1,4 +1,9 @@
 % 1.02 (*) Find the last but one element of a list.
+
+% simple impl
+%% last_but_one([X, _], X).
+%% last_but_one([_, X, Y | R], Z) :- last_but_one([X, Y | R], Z).
+
 last_but_one([Y1, Y2 | L], X) :- last_but_one_(L, Y1, Y2, X).
 last_but_one_([], X, _, X).
 last_but_one_([Y3 | L], Y1, Y2, X) :- last_but_one_(L, Y2, Y3, X).

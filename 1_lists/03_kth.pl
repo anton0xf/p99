@@ -1,6 +1,13 @@
 % 1.03 (*) Find the K'th element of a list.
 % The first element in the list is number 1.
 
+% simple impl
+%% element_at(X, [X | _], 1).
+%% element_at(X, [_ | L], N)
+%% :- integer(N), N > 1,
+%%    N1 is N - 1,
+%%    element_at(X, L, N1).
+
 element_at(X, L, N) :- element_at_(X, L, 1, N).
 
 element_at_(X, [X | _], N, N) :- !.

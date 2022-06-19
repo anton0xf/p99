@@ -1,4 +1,9 @@
 % 1.01 (*) Find the last element of a list.
+
+% simple impl
+%% my_last(X, [X]).
+%% my_last(X, [_ | L]) :- my_last(X, L).
+
 my_last(X, [Y | L]) :- my_last_(L, X, Y).
 my_last_([], X, X).
 my_last_([Y | L], X, _) :- my_last_(L, X, Y).
