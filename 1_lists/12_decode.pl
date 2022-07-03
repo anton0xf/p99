@@ -11,9 +11,9 @@ decode_([[1, X] | L], A, R) :- decode_(L, [X | A], R), !.
 decode_([[N, X] | L], A, R)
 :- N1 is N - 1,
    decode_([[N1, X] | L], [X | A], R), !.
+decode_([X | L], A, R) :- decode_(L, [X | A], R), !.
 
 %% Example:
 %?- set_prolog_flag(answer_write_options, [max_depth(0)]).
-%?- decode([[4, a], [1, b], [2, c], [2, a], [1, d], [4, e]], X).
+%?- decode([[4, a], b, [2, c], [2, a], d, [4, e]], X).
 %@ X = [a, a, a, a, b, c, c, a, a, d, e, e, e, e].
-
